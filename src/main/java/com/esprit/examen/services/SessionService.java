@@ -57,6 +57,5 @@ public class SessionService implements ISessionService{
 	public Long count() {
 		return sessionRepository.count();
 	}
-	
 
 }
