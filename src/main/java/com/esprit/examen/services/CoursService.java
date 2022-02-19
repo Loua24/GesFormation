@@ -11,7 +11,10 @@ import com.esprit.examen.entities.Session;
 import com.esprit.examen.repositories.CoursRepository;
 import com.esprit.examen.repositories.SessionRepository;
 
+import lombok.extern.slf4j.Slf4j;
+
 @Service
+@Slf4j
 public class CoursService implements ICoursService {
 
 	@Autowired
@@ -19,6 +22,7 @@ public class CoursService implements ICoursService {
 	@Override
 	public Long addCours(Cours cours) {
 		coursRepository.save(cours);
+		log.info("shawty");
 		return cours.getId();
 	}
 

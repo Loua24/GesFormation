@@ -29,7 +29,7 @@ public Cours ajouterCours(@RequestBody Cours cours) {
 }
 
 @PutMapping("/modifierCours")
-@ResponseBody
+@ResponseBody   
 public Cours modifierCours(@RequestBody Cours cours) {
 	coursService.addCours(cours);
 	return cours;
