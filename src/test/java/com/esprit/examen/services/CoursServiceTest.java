@@ -2,8 +2,6 @@ package com.esprit.examen.services;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-//import static org.junit.Assert.*;
-import org.apache.logging.log4j.*;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase;
@@ -18,18 +16,18 @@ import lombok.extern.slf4j.Slf4j;
 @DataJpaTest
 @AutoConfigureTestDatabase(replace = AutoConfigureTestDatabase.Replace.NONE)
 
-public class CoursServiceTest {
+class CoursServiceTest {
 
 
 	@Autowired
 	CoursRepository coursRepository;
 	
 	@Test
-	public void testAddCours() {
+	void testAddCours() {
 		Cours cours = new Cours();
 		cours.setDescription("Desc");
 		cours.setIntitule("Name");
-		cours.setTypeCours(TypeCours.Informatique);
+		cours.setTypeCours(TypeCours.INFORMATIQUE);
 		Long dataPreTest = coursRepository.count();
 		coursRepository.save(cours);
 		Long dataAfterTest = coursRepository.count();

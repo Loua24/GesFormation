@@ -11,6 +11,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 
+import com.esprit.examen.dto.CoursModel;
+
 @Entity
 public class Cours implements Serializable {
 	private static final long serialVersionUID = 1L;
@@ -67,9 +69,18 @@ public class Cours implements Serializable {
 		this.typeCours = typeCours;
 		this.intitule = intitule;
 	}
+	public Cours(CoursModel c) {
+		super();
+		this.id = c.getId();
+		this.description=c.getDescription();
+		this.typeCours = c.getTypeCours();
+		this.intitule=c.getIntitule();
+		this.sessions=c.getSessions();
+	}
+	
 	public Cours() {
 		super();
-		// TODO Auto-generated constructor stub
+		
 	}
 	
 	

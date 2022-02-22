@@ -1,8 +1,6 @@
 package com.esprit.examen.controllers;
 
 import java.util.List;
-import java.util.Set;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -13,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.esprit.examen.dto.CoursModel;
 import com.esprit.examen.entities.Cours;
 import com.esprit.examen.services.ICoursService;
 
@@ -23,15 +22,17 @@ ICoursService coursService;
 
 @PostMapping("/ajouterCours")
 @ResponseBody
-public Cours ajouterCours(@RequestBody Cours cours) {
+public Cours ajouterCours(@RequestBody CoursModel c) {
+	Cours cours = new Cours(c);
 	coursService.addCours(cours);
 	return cours;
 }
 
 @PutMapping("/modifierCours")
 @ResponseBody   
-public Cours modifierCours(@RequestBody Cours cours) {
-	coursService.addCours(cours);
+public Cours modifierCours(@RequestBody Long coursId, CoursModel c) {
+	Cours cours = new Cours(c);
+	coursService.modifierCours(coursId, cours);
 	return cours;
 }
 
