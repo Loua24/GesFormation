@@ -13,6 +13,8 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 import lombok.AllArgsConstructor;
 
 @Entity
@@ -28,6 +30,7 @@ public class Session implements Serializable{
 	private Date dateFin;
 	private Long duree;
 	private String description;
+	@JsonBackReference
 	@ManyToOne
     Formateur formateur;
 	@ManyToMany
