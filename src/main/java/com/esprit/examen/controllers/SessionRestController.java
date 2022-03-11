@@ -4,7 +4,6 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -31,18 +30,6 @@ public class SessionRestController {
 		sessionService.addSession(session);
 		return session;
 	}
-	
-	@GetMapping("/all")
-	@ResponseBody
-	public List<Session> listSessions() {
-		return sessionService.findAllSessions();
-	}
-
-	@GetMapping("/{id}")
-	@ResponseBody
-	public Optional<Session> getSession(@PathVariable("id") Long id) {
-		return sessionService.findSession(id);
-	}
 
 	@PutMapping
 	@ResponseBody
@@ -62,5 +49,17 @@ public class SessionRestController {
 	@ResponseBody
 	public void supprimerSession(@PathVariable("sessionId") Long sessionId) {
 		sessionService.supprimerSession(sessionId);
+	}
+	
+	@GetMapping("/{sessionId}")
+	@ResponseBody
+	public Optional<Session> getSession(@PathVariable("sessionId") Long sessionId) {
+		return sessionService.findSession(sessionId);
+	}
+	
+	@GetMapping("/all")
+	@ResponseBody
+	public List<Session> getAllSession() {
+		return sessionService.findAllSessions();
 	}
 }

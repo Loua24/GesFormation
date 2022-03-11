@@ -11,6 +11,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 @Entity
 public class Formateur implements Serializable{
 	private static final long serialVersionUID = 1L;
@@ -26,6 +28,7 @@ public class Formateur implements Serializable{
 	private String email;
 	private String password;
 	private Boolean admin;
+	@JsonManagedReference
 	@OneToMany(mappedBy="formateur")
 	private Set<Session> sessions;
 	
