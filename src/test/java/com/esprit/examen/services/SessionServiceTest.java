@@ -31,7 +31,7 @@ public class SessionServiceTest {
 		Date dateD = dateFormat.parse("2015-03-23");
 		Date dateF = dateFormat.parse("2016-03-23");
 		String desc = "my test session";
-		Session se = new Session(1L, dateD, dateF, 10L, desc);
+		Session se = new Session(88L, dateD, dateF, 10L, desc);
 		Long dataBeforeTest = ss.count();
 		ss.save(se);
 		Long dataAfterTest = ss.count();
