@@ -11,11 +11,28 @@
 	</parent>
 	<groupId>com.esprit.examen</groupId>
 	<artifactId>GesF</artifactId>
-	<version>1.0</version>
+	<version>1.1.0</version>
 	<name>GesF</name>
 	<description>springBootProject</description>
+	<distributionManagement>
+		<repository>
+			<id>deploymentRepo</id>
+			<url>http://localhost:8081/repository/maven-releases</url>
+		</repository>
+		<snapshotRepository>
+			<id>snapshots</id>
+			<url>http://localhost:8081/nexus/content/repositories/snapshots</url>
+		</snapshotRepository>
+	</distributionManagement>
 	<properties>
 		<java.version>11</java.version>
+			<!-- JaCoCo Properties -->
+		<jacoco.version>0.8.6</jacoco.version>
+		<sonar.java.coveragePlugin>jacoco</sonar.java.coveragePlugin>
+		<sonar.dynamicAnalysis>reuseReports</sonar.dynamicAnalysis>
+		<sonar.jacoco.reportPath>${project.basedir}/../target/jacoco.exec</sonar.jacoco.reportPath>
+		<sonar.language>java</sonar.language>
+	
 	</properties>
 	<dependencies>
 		<dependency>
@@ -56,7 +73,11 @@
 			<version>5.8.1</version>
 			<scope>test</scope>
 		</dependency>
-
+		
+	<dependency>
+<groupId>org.sonarsource.scanner.maven</groupId>
+<artifactId>sonar-maven-plugin</artifactId><version>3.7.0.1746</version>
+</dependency>
 	</dependencies>
 
 	<build>
@@ -65,6 +86,12 @@
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
 			</plugin>
+			
+<plugin>
+  <groupId>org.jacoco</groupId>
+  <artifactId>jacoco-maven-plugin</artifactId>
+  <version>0.8.6</version>
+</plugin>
 		</plugins>
 	</build>
 
