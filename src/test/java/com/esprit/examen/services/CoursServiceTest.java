@@ -35,6 +35,6 @@ public class CoursServiceTest {
 		assertThat(dataPreTest).isEqualTo(dataAfterTest -1);
 		log.info("here test journalisation"+ cours);
 		coursRepository.delete(cours); }
-	
+		
 
 }
