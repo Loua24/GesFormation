@@ -40,7 +40,6 @@ public class CoursService implements ICoursService {
 			c.setDescription(cours.getDescription());
 			c.setIntitule(cours.getIntitule());
 			c.setTypeCours(cours.getTypeCours());
-			c.setSessions(cours.getSessions());
 			coursRepository.save(c);
 		}
 		return cours.getId();
@@ -75,7 +74,7 @@ public class CoursService implements ICoursService {
 			set.add(session);
 			cours.setSessions(set);
 			coursRepository.save(cours);
-		}
+		}                                 
 	}
 
 }
